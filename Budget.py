@@ -1,12 +1,13 @@
 expenses = []
 type_of_expense = []
 
+# Function showing all monthly expenses.
 def show_expenses(month):
     for expense_amount, expense_type, expense_month in expenses:
         if expense_month == month:
             print(f'{expense_amount} - {expense_type}')
 
-
+# Function to add new expense.
 def add_expense(month):
     print()
     expense_amount = int(input('Enter the amount [PLN]: '))
@@ -15,23 +16,23 @@ def add_expense(month):
     expense = (expense_amount, expense_type, month)
     expenses.append(expense)
 
-
+# Function show a statsistic.
 def show_stats(month):
-    total_amount_this_mouth = sum(expense_amount for expense_amount, _, expense_month in expenses if expense_month == month)
-    number_of_expenses_this_mouth = sum(1 for _, _, expense_month in expenses if expense_month == month)
-    average_expense_this_month = total_amount_this_mouth / number_of_expenses_this_mouth
+    total_amount_this_month = sum(expense_amount for expense_amount, _, expense_month in expenses if expense_month == month) # Total amount this month 
+    number_of_expenses_this_month = sum(1 for _, _, expense_month in expenses if expense_month == month) # Numbers of expenses this month
+    average_expense_this_month = total_amount_this_month / number_of_expenses_this_month # Average expense this month
 
-    total_amount_all = sum(expense_amount for expense_amount, _, _ in expenses)
-    average_expense_all = total_amount_all / len(expenses)
+    total_amount_all = sum(expense_amount for expense_amount, _, _ in expenses) # Total amount all
+    average_expense_all = total_amount_all / len(expenses) # Average expanse all
 
     print()
     print('Statistics')
-    print('Total amount this montht [PLN]:', total_amount_this_mouth)
+    print('Total amount this montht [PLN]:', total_amount_this_month)
     print('Average expense this month [PLN]:', average_expense_this_month)
     print('Total amount all [PLN]:', total_amount_all)
     print('Average expanse all [PLN]:', average_expense_all)
 
-
+# Function to add new expense type.
 def new_expense_type():
     print()
     new_expense_type = input('Enter the new expense type: ')
