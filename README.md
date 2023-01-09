@@ -22,4 +22,4 @@ When user select option 2, "Application settings" application will ask to select
   2, Other
   
   
-Application is being developed.
+Application is being developed
